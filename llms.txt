@@ -1,0 +1,77 @@
+# Miraj Bhattarai
+
+> Machine Learning Intern at Techkey Technology Pvt. Ltd. and final-year B.Sc.
+> Computer Science and Information Technology student at Tribhuvan University,
+> based in Budhanilkantha, Kathmandu, Nepal. Builds and trains machine learning
+> models in Python and the APIs and interfaces around them.
+
+Site: https://www.mirajbhattarai.com.np/
+Contact: mirajbhattarai7@gmail.com · +977 9863977099
+GitHub: https://github.com/MirajB1
+LinkedIn: https://www.linkedin.com/in/miraj-bhattarai-1122b6265/
+Location: Budhanilkantha, Kathmandu, Nepal (UTC+05:45)
+Available for: machine learning and software engineering roles, internships and
+collaborations, in Kathmandu or remote.
+
+## Current role
+
+Machine Learning Intern, Techkey Technology Pvt. Ltd., Kathmandu — August 2026 to
+present. Builds and trains models in Python with Scikit-learn, TensorFlow and
+PyTorch, covering data preprocessing, feature engineering, hyperparameter tuning
+and evaluation on accuracy, precision and recall. Researches and prototypes
+candidate approaches, benchmarks every model against a baseline, documents
+datasets and experiment results for reproducibility, and refactors research
+prototypes into modular Python reviewed by senior engineers.
+
+## Projects
+
+- **AgniDrishti Nepal** (2026, final year major project) — AI wildfire prediction
+  and early warning system for Nepal. Custom-trained Random Forest and Naive Bayes
+  models score wildfire risk from weather, elevation and satellite fire-hotspot
+  data, with Vapour Pressure Deficit as an engineered feature. JWT-secured FastAPI
+  backend with role-based access, public alerting and automated full-country risk
+  scans; React front end with real-time hotspot mapping. Data from NASA FIRMS,
+  OpenWeatherMap and Open-Elevation.
+- **QR-Based Digital Academic System** (2026, winner of TechSprint Hackathon 2026)
+  — replaced paper lab submissions at Tribhuvan University. Per-student QR codes
+  for instant record access, batch scanning for evaluators, and three role-based
+  portals with real-time notifications. React, Vite, Tailwind CSS, Node.js.
+  201+ team commits.
+- **SnapSpend** (2025) — financial statement analyzer that extracts, categorizes
+  and visualizes transactions from bank statement images and PDFs. Tesseract OCR
+  and PyMuPDF for dual-mode extraction, rule-based categorization, Chart.js
+  dashboards. Python, Flask, Pandas.
+- **Project Ecolog** (2024, winner of Tech Conclave 2024 and technical category
+  winner at BPC Hackfest 2024) — Raspberry Pi forest fire and intrusion detection
+  pairing real-time audio classification for gunshots and smoke with Azure Custom
+  Vision imaging. Azure Blob Storage archives frames; the system triggers hardware
+  alerts and streams live data to a web dashboard. Built by a four-person team.
+
+## Skills
+
+Languages: Python, JavaScript, C, C++, Java
+Machine learning: Scikit-learn, TensorFlow, PyTorch, OpenCV, Random Forest, Naive Bayes
+Data: NumPy, Pandas, Matplotlib, Seaborn
+Backend: FastAPI, Flask, Node.js, JWT authentication
+Frontend: React, Vite, HTML5, CSS3, Tailwind CSS
+Databases: MySQL, SQLite, MongoDB
+Tools: Git, GitHub, Linux, VS Code, Figma, Vercel, Render, Raspberry Pi, Microsoft Azure
+Spoken: Nepali (native), English (fluent), Hindi (fluent)
+
+## Education
+
+- B.Sc. Computer Science and Information Technology, Tribhuvan University —
+  Madan Bhandari Memorial College, Kathmandu, 2023 to 2026. CGPA 3.0+ across all
+  semesters, no backlogs.
+- Higher Secondary (NEB, +2 Science), Liverpool International College, Kathmandu,
+  2020 to 2022. CGPA 3.01.
+
+## Awards
+
+Winner, TechSprint Hackathon 2026 (Nepal Engineering College). DataCamp Fellowship
+2025. Lead Organizer, MBMC IdeaX 2025. Organizing Committee, Hult Prize at MBMC
+2025. Winner, Tech Conclave 2024. Technical Category Winner, BPC Hackfest 2024.
+
+## Files
+
+- Résumé (PDF): https://www.mirajbhattarai.com.np/docs/Miraj_Bhattarai_CV.pdf

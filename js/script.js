@@ -1,143 +1,246 @@
-// js/script.js
-document.addEventListener('DOMContentLoaded', function() {
-    const menuToggle = document.getElementById('mobile-menu');
-    const navList = document.querySelector('#main-header nav .nav-list');
-    const header = document.getElementById('main-header');
+/* ══════════════════════════════════════════════════════════════
+   Miraj Bhattarai — portfolio
+   Vanilla JS, no dependencies.
+     · intro animation  · theme switch  · scroll reveal
+     · project tabs     · visitor count
+   Everything that can fail, fails quietly and hides itself.
+   ══════════════════════════════════════════════════════════════ */
+(function () {
+  'use strict';
 
-    // Mobile Menu Toggle
-    if (menuToggle && navList) {
-        menuToggle.addEventListener('click', () => {
-            navList.classList.toggle('active');
-            const isExpanded = navList.classList.contains('active');
-            menuToggle.setAttribute('aria-expanded', isExpanded);
-            menuToggle.classList.toggle('is-active');
-        });
+  var root    = document.documentElement;
+  var reduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+  function $(s, c) { return (c || document).querySelector(s); }
+  function $$(s, c) { return Array.prototype.slice.call((c || document).querySelectorAll(s)); }
+  function store(fn, fb) { try { return fn(); } catch (e) { return fb; } }
+
+  /* ─────────────────────────── intro ───────────────────────────
+     The name rises, a rule draws under it, then the panel lifts away.
+     Plays on every load, skippable with any key or click, and skipped
+     outright for reduced motion. A failsafe removes it regardless. */
+  function boot() {
+    var el = document.getElementById('boot');
+    if (!el) return;
+
+    if (reduced) { el.remove(); return; }
+
+    var done = false, timers = [];
+
+    function finish() {
+      if (done) return;
+      done = true;
+      timers.forEach(clearTimeout);
+      el.classList.add('out');
+      timers.push(window.setTimeout(function () { if (el.parentNode) el.remove(); }, 720));
+      window.removeEventListener('keydown', finish);
+      window.removeEventListener('pointerdown', finish);
     }
 
-    // Smooth scroll for anchor links & Active link highlighting
-    const navLinks = document.querySelectorAll('#main-header nav .nav-list a');
-    const headerHeight = header ? header.offsetHeight : 70; // Default if header not found quickly
+    window.addEventListener('keydown', finish);
+    window.addEventListener('pointerdown', finish);
 
-    navLinks.forEach(link => {
-        link.addEventListener('click', function(e) {
-            if (this.hash !== "") {
-                const hash = this.hash;
-                const targetElement = document.querySelector(hash);
-                if (targetElement) {
-                    if (navList.classList.contains('active')) {
-                        navList.classList.remove('active');
-                        menuToggle.classList.remove('is-active');
-                        menuToggle.setAttribute('aria-expanded', 'false');
-                    }
-                    // If not using CSS scroll-behavior, uncomment and adjust this:
-                    // e.preventDefault();
-                    // const elementPosition = targetElement.getBoundingClientRect().top + window.pageYOffset;
-                    // const offsetPosition = elementPosition - headerHeight;
-                    // window.scrollTo({ top: offsetPosition, behavior: "smooth"});
-                }
-            }
-        });
+    timers.push(window.setTimeout(finish, 1300));   // normal end of the intro
+    window.setTimeout(function () {                  // failsafe, never trapped
+      if (done) return;
+      el.classList.add('out');
+      window.setTimeout(function () { if (el.parentNode) el.remove(); }, 720);
+      done = true;
+    }, 3500);
+  }
+
+  /* ─────────────────────────── theme ─────────────────────────── */
+  function theme() {
+    var btn = $('#themeBtn');
+    if (!btn) return;
+    var mq = window.matchMedia('(prefers-color-scheme: light)');
+
+    function apply(t, remember) {
+      root.setAttribute('data-theme', t);
+      if (remember) {
+        root.removeAttribute('data-theme-auto');
+        store(function () { localStorage.setItem('mb-theme', t); });
+      }
+      btn.setAttribute('aria-label', t === 'dark' ? 'Switch to light theme' : 'Switch to dark theme');
+    }
+
+    btn.addEventListener('click', function () {
+      apply(root.getAttribute('data-theme') === 'dark' ? 'light' : 'dark', true);
     });
 
-    // Active link highlighting on scroll
-    const sections = document.querySelectorAll('main section[id]');
-    function setActiveLink() {
-        let current = 'hero'; // Default to hero
-        const effectiveHeaderHeight = header ? header.offsetHeight : 70; // Recalculate or use stored
-        const scrollPosition = window.pageYOffset + effectiveHeaderHeight + 40; // Offset for better accuracy
+    // keep following the OS until the visitor makes a choice
+    var onChange = function (e) {
+      if (root.getAttribute('data-theme-auto')) apply(e.matches ? 'light' : 'dark', false);
+    };
+    if (mq.addEventListener) mq.addEventListener('change', onChange);
+    else if (mq.addListener) mq.addListener(onChange);
 
-        sections.forEach(section => {
-            // Check if section is in viewport or just passed
-            if (section.offsetTop <= scrollPosition && (section.offsetTop + section.offsetHeight) > scrollPosition) {
-                current = section.getAttribute('id');
-            }
-        });
+    apply(root.getAttribute('data-theme'), false);
+  }
 
-        // If scrolled to bottom, highlight the last section (contact)
-        if ((window.innerHeight + window.pageYOffset) >= document.body.offsetHeight - 50) { // Near bottom
-            current = sections[sections.length -1].getAttribute('id');
-        }
+  /* ─────────────────────────── chrome: bar, nav, reveal ─────────────────────────── */
+  function chrome() {
+    var bar = $('#bar'), nav = $('#nav'), burger = $('#burger');
 
-
-        navLinks.forEach(link => {
-            link.classList.remove('active-link');
-            const linkHref = link.getAttribute('href');
-            if (linkHref && linkHref.substring(1) === current) {
-                link.classList.add('active-link');
-            }
-        });
-         // Fallback for top of page if no other section is active
-        if (current === 'hero' && pageYOffset < (sections[0].offsetTop - effectiveHeaderHeight - 20) ) {
-             navLinks.forEach(l => l.classList.remove('active-link'));
-             const homeLink = document.querySelector('#main-header nav .nav-list a[href="#hero"]');
-             if(homeLink) homeLink.classList.add('active-link');
-        } else if (current === '' && pageYOffset < 200) { // Ensure hero is active if scrolled near top
-            navLinks.forEach(l => l.classList.remove('active-link'));
-            const homeLink = document.querySelector('#main-header nav .nav-list a[href="#hero"]');
-            if(homeLink) homeLink.classList.add('active-link');
-        }
+    var ticking = false;
+    function onScroll() {
+      if (bar) bar.classList.toggle('stuck', (window.scrollY || 0) > 6);
     }
-    window.addEventListener('scroll', setActiveLink);
-    setActiveLink(); // Set active link on page load
+    window.addEventListener('scroll', function () {
+      if (ticking) return;
+      ticking = true;
+      requestAnimationFrame(function () { onScroll(); ticking = false; });
+    }, { passive: true });
+    onScroll();
 
-    // Add/remove 'scrolled' class to header
-    if (header) {
-        window.addEventListener('scroll', () => {
-            if (window.scrollY > 30) { // Smaller threshold for scrolled effect
-                header.classList.add('scrolled');
-            } else {
-                header.classList.remove('scrolled');
-            }
-        });
+    function closeNav() {
+      if (!nav || !burger) return;
+      nav.classList.remove('open');
+      burger.setAttribute('aria-expanded', 'false');
+      burger.setAttribute('aria-label', 'Open menu');
+    }
+    if (nav && burger) {
+      burger.addEventListener('click', function () {
+        var open = nav.classList.toggle('open');
+        burger.setAttribute('aria-expanded', String(open));
+        burger.setAttribute('aria-label', open ? 'Close menu' : 'Open menu');
+      });
+      nav.addEventListener('click', function (e) { if (e.target.closest('a')) closeNav(); });
+      document.addEventListener('keydown', function (e) { if (e.key === 'Escape') closeNav(); });
+      document.addEventListener('click', function (e) {
+        if (!nav.classList.contains('open')) return;
+        if (e.target.closest('#nav') || e.target.closest('#burger')) return;
+        closeNav();
+      });
+      window.addEventListener('resize', function () { if (window.innerWidth > 900) closeNav(); });
     }
 
-     // Collapsible Sections (Accordion-like for mobile)
-    const collapsibleTriggers = document.querySelectorAll('.collapsible-trigger');
-
-    collapsibleTriggers.forEach(trigger => {
-        // Set initial state for desktop: content open, icon might be '+'
-        // If you want the icon to be '-' on desktop by default when content is open:
-        // if (window.innerWidth > 768) {
-        //     trigger.classList.add('active'); // Makes icon '-' or 'X'
-        // }
-
-        trigger.addEventListener('click', function() {
-            const content = this.nextElementSibling;
-
-            // Toggle active class for the icon regardless of view
-            this.classList.toggle('active');
-
-            // Only toggle content visibility (collapse/expand) on mobile
-            const isMobileView = window.innerWidth <= 768;
-            if (isMobileView) {
-                if (content && content.classList.contains('collapsible-content')) {
-                    content.classList.toggle('open');
-                }
-            }
-            // On desktop, the content remains open due to CSS (max-height not 0)
-            // but the icon will still toggle.
+    // one-shot reveal, then the transition is dropped entirely
+    var items = $$('.r');
+    if (reduced || !('IntersectionObserver' in window)) {
+      items.forEach(function (el) { el.classList.add('in', 'settled'); });
+    } else {
+      var io = new IntersectionObserver(function (entries, obs) {
+        entries.forEach(function (en) {
+          if (!en.isIntersecting) return;
+          var el = en.target;
+          el.classList.add('in');
+          obs.unobserve(el);
+          el.addEventListener('transitionend', function h(ev) {
+            if (ev.propertyName !== 'opacity') return;
+            el.classList.add('settled');
+            el.removeEventListener('transitionend', h);
+          });
         });
+      }, { rootMargin: '0px 0px -6% 0px', threshold: 0.06 });
+      items.forEach(function (el) { io.observe(el); });
+    }
 
-        // Ensure correct initial state of icon and content based on viewport on load
-        const contentElement = trigger.nextElementSibling;
-        if (contentElement && contentElement.classList.contains('collapsible-content')) {
-            if (window.innerWidth <= 768) {
-                // Mobile: Content closed, icon '+' (no 'active' class on trigger)
-                trigger.classList.remove('active');
-                contentElement.classList.remove('open'); // CSS handles initial max-height: 0
-            } else {
-                // Desktop: Content open, icon should be '-' or 'X' if you want it to reflect "open" state
-                // Or keep it as '+' if you only want it to react on mobile clicks.
-                // For consistency that it CAN be toggled (on mobile), let's keep it as '+'
-                trigger.classList.remove('active'); // Start with '+' icon on desktop
-                contentElement.classList.add('open'); // Ensure CSS for 'open' makes it visible if it wasn't
-            }
-        }
+    // active nav link
+    var secs = $$('main section[id]'), links = $$('#nav a[href^="#"]');
+    if ('IntersectionObserver' in window && secs.length) {
+      var vis = {};
+      var spy = new IntersectionObserver(function (entries) {
+        entries.forEach(function (e) { vis[e.target.id] = e.intersectionRatio; });
+        var best = null, r = 0;
+        Object.keys(vis).forEach(function (id) { if (vis[id] > r) { r = vis[id]; best = id; } });
+        if (best && r > 0) links.forEach(function (a) { a.classList.toggle('on', a.getAttribute('href') === '#' + best); });
+      }, { rootMargin: '-45% 0px -45% 0px', threshold: [0, .2, .5, .8, 1] });
+      secs.forEach(function (s) { spy.observe(s); });
+    }
+
+    var y = $('#year'); if (y) y.textContent = new Date().getFullYear();
+  }
+
+  /* ─────────────────────────── project tabs ─────────────────────────── */
+  function projects() {
+    var tabs = $$('.pj-tab'), panes = $$('.pj-pane');
+    if (!tabs.length) return;
+
+    function show(n, focus) {
+      tabs.forEach(function (t) {
+        var on = t.dataset.i === String(n);
+        t.classList.toggle('is-on', on);
+        t.setAttribute('aria-selected', String(on));
+        t.tabIndex = on ? 0 : -1;
+        if (on && focus) t.focus();
+      });
+      panes.forEach(function (p) {
+        var on = p.id === 'pj-' + n;
+        p.hidden = !on;
+        p.classList.toggle('is-on', on);
+      });
+    }
+
+    tabs.forEach(function (t) {
+      t.addEventListener('click', function () { show(t.dataset.i, false); });
+      t.addEventListener('keydown', function (e) {
+        var i = tabs.indexOf(t), n = null;
+        if (e.key === 'ArrowRight' || e.key === 'ArrowDown') n = (i + 1) % tabs.length;
+        else if (e.key === 'ArrowLeft' || e.key === 'ArrowUp') n = (i - 1 + tabs.length) % tabs.length;
+        else if (e.key === 'Home') n = 0;
+        else if (e.key === 'End') n = tabs.length - 1;
+        if (n === null) return;
+        e.preventDefault();
+        show(tabs[n].dataset.i, true);
+      });
     });
+    show(1, false);
+  }
 
-    // Update footer year
-    const currentYearSpan = document.getElementById('currentYear');
-    if (currentYearSpan) {
-        currentYearSpan.textContent = new Date().getFullYear();
-    }
-});
+  /* ─────────────────────────── copy to clipboard ─────────────────────────── */
+  function copy() {
+    $$('.copy').forEach(function (btn) {
+      var label = $('span', btn), use = $('use', btn), original = label ? label.textContent : '';
+      btn.addEventListener('click', function () {
+        var v = btn.getAttribute('data-copy') || '';
+        function done() {
+          btn.classList.add('done');
+          if (label) label.textContent = 'copied';
+          if (use) use.setAttribute('href', '#i-check');
+          setTimeout(function () {
+            btn.classList.remove('done');
+            if (label) label.textContent = original;
+            if (use) use.setAttribute('href', '#i-copy');
+          }, 1800);
+        }
+        function fallback() {
+          var ta = document.createElement('textarea');
+          ta.value = v; ta.setAttribute('readonly', ''); ta.style.cssText = 'position:fixed;opacity:0';
+          document.body.appendChild(ta); ta.select();
+          try { document.execCommand('copy'); done(); } catch (e) {}
+          document.body.removeChild(ta);
+        }
+        if (navigator.clipboard && navigator.clipboard.writeText) {
+          navigator.clipboard.writeText(v).then(done, fallback);
+        } else { fallback(); }
+      });
+    });
+  }
+
+  /* ─────────────────────────── visitor count ─────────────────────────── */
+  function visitors() {
+    var wrap = $('#visits'), out = $('#visitsCount');
+    if (!wrap || !out) return;
+
+    var NS = 'mirajbhattarai-com-np', KEY = 'site-visits';
+    var counted = store(function () { return sessionStorage.getItem('mb-counted'); }, '1');
+    var verb = counted ? 'get' : 'hit';
+
+    fetch('https://abacus.jasoncameron.dev/' + verb + '/' + NS + '/' + KEY, { cache: 'no-store' })
+      .then(function (r) { if (!r.ok) throw new Error(r.status); return r.json(); })
+      .then(function (d) {
+        var n = d && typeof d.value === 'number' ? d.value : null;
+        if (n === null) throw new Error('shape');
+        store(function () { sessionStorage.setItem('mb-counted', '1'); });
+        out.textContent = n.toLocaleString();
+        wrap.hidden = false;
+      })
+      .catch(function () { wrap.hidden = true; });
+  }
+
+  /* ─────────────────────────── go ─────────────────────────── */
+  document.addEventListener('DOMContentLoaded', function () {
+    boot(); theme(); chrome(); projects(); copy(); visitors();
+  });
+})();

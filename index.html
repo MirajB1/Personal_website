@@ -1,245 +1,659 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" data-theme="dark">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Miraj Bhattarai - Aspiring AI/ML Developer</title>
-    <link rel="stylesheet" href="css/style.css">
-    <link href="https://fonts.googleapis.com/css2?family=Lato:wght@300;400;700&family=Noto+Sans+Devanagari:wght@400;700&family=Nunito+Sans:wght@400;600;700&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <link rel="icon" href="favicon.png" type="image/png" sizes="40x40">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script>
+/* Set the theme before first paint: stored choice wins, otherwise follow the OS. */
+(function(){
+  var d=document.documentElement;
+  d.classList.add('js');
+  try{
+    var s=localStorage.getItem('mb-theme');
+    d.setAttribute('data-theme', s || (window.matchMedia('(prefers-color-scheme: light)').matches ? 'light' : 'dark'));
+    if(!s) d.setAttribute('data-theme-auto','1');
+  }catch(e){ d.setAttribute('data-theme','dark'); }
+})();
+</script>
+
+<title>Miraj Bhattarai — Machine Learning Developer, Kathmandu Nepal</title>
+<meta name="description" content="Machine Learning Intern at Techkey Technology and final-year B.Sc. CSIT student in Kathmandu, Nepal. Python, Scikit-learn, TensorFlow, PyTorch and FastAPI.">
+<meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1">
+<meta name="googlebot" content="index, follow, max-image-preview:large, max-snippet:-1">
+
+<!-- location signals for local / geographic search -->
+<meta name="geo.region" content="NP-BA">
+<meta name="geo.placename" content="Budhanilkantha, Kathmandu, Nepal">
+<meta name="geo.position" content="27.7783;85.3620">
+<meta name="ICBM" content="27.7783, 85.3620">
+<meta name="author" content="Miraj Bhattarai">
+<link rel="canonical" href="https://www.mirajbhattarai.com.np/">
+<link rel="alternate" hreflang="en" href="https://www.mirajbhattarai.com.np/">
+<link rel="alternate" hreflang="x-default" href="https://www.mirajbhattarai.com.np/">
+<meta name="theme-color" content="#0B0E12" media="(prefers-color-scheme: dark)">
+<meta name="theme-color" content="#FBFBF9" media="(prefers-color-scheme: light)">
+
+<meta property="og:type" content="profile">
+<meta property="og:site_name" content="Miraj Bhattarai">
+<meta property="og:locale" content="en_US">
+<meta property="profile:first_name" content="Miraj">
+<meta property="profile:last_name" content="Bhattarai">
+<meta property="og:url" content="https://www.mirajbhattarai.com.np/">
+<meta property="og:title" content="Miraj Bhattarai — Machine Learning &amp; Software Developer in Kathmandu">
+<meta property="og:description" content="Machine Learning Intern at Techkey Technology. Final-year CSIT student in Kathmandu building ML systems end to end.">
+<meta property="og:image" content="https://www.mirajbhattarai.com.np/images/og-image.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="Miraj Bhattarai, machine learning intern and software developer in Kathmandu, Nepal">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Miraj Bhattarai — Machine Learning &amp; Software Developer in Kathmandu">
+<meta name="twitter:description" content="Machine Learning Intern at Techkey Technology. Final-year CSIT student in Kathmandu building ML systems end to end.">
+<meta name="twitter:image" content="https://www.mirajbhattarai.com.np/images/og-image.png">
+<meta name="twitter:image:alt" content="Miraj Bhattarai, machine learning intern and software developer in Kathmandu, Nepal">
+
+<link rel="icon" href="favicon.svg" type="image/svg+xml">
+<link rel="alternate icon" href="favicon.png" type="image/png">
+<link rel="apple-touch-icon" href="favicon.png">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="preload" as="image" href="images/miraj.webp">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;500;700&family=Noto+Sans+Devanagari:wght@400&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="css/style.css">
+
+<script type="application/ld+json">
+{
+ "@context": "https://schema.org",
+ "@graph": [
+  {
+   "@type": "WebSite",
+   "@id": "https://www.mirajbhattarai.com.np/#website",
+   "url": "https://www.mirajbhattarai.com.np/",
+   "name": "Miraj Bhattarai",
+   "description": "Portfolio of Miraj Bhattarai, machine learning intern and software developer in Kathmandu, Nepal.",
+   "inLanguage": "en",
+   "publisher": {
+    "@id": "https://www.mirajbhattarai.com.np/#miraj"
+   }
+  },
+  {
+   "@type": "ProfilePage",
+   "@id": "https://www.mirajbhattarai.com.np/#page",
+   "url": "https://www.mirajbhattarai.com.np/",
+   "name": "Miraj Bhattarai — Machine Learning & Software Developer in Kathmandu, Nepal",
+   "isPartOf": {
+    "@id": "https://www.mirajbhattarai.com.np/#website"
+   },
+   "about": {
+    "@id": "https://www.mirajbhattarai.com.np/#miraj"
+   },
+   "mainEntity": {
+    "@id": "https://www.mirajbhattarai.com.np/#miraj"
+   },
+   "inLanguage": "en",
+   "primaryImageOfPage": {
+    "@type": "ImageObject",
+    "url": "https://www.mirajbhattarai.com.np/images/miraj.png",
+    "caption": "Miraj Bhattarai"
+   }
+  },
+  {
+   "@type": "Person",
+   "@id": "https://www.mirajbhattarai.com.np/#miraj",
+   "name": "Miraj Bhattarai",
+   "givenName": "Miraj",
+   "familyName": "Bhattarai",
+   "url": "https://www.mirajbhattarai.com.np/",
+   "image": "https://www.mirajbhattarai.com.np/images/miraj.png",
+   "description": "Machine Learning Intern at Techkey Technology Pvt. Ltd. and final-year B.Sc. Computer Science and Information Technology student at Tribhuvan University, Kathmandu. Builds and trains machine learning models in Python and the APIs and interfaces around them.",
+   "jobTitle": "Machine Learning Intern",
+   "email": "mailto:mirajbhattarai7@gmail.com",
+   "telephone": "+977-9863977099",
+   "nationality": {
+    "@type": "Country",
+    "name": "Nepal"
+   },
+   "worksFor": {
+    "@type": "Organization",
+    "name": "Techkey Technology Pvt. Ltd.",
+    "address": {
+     "@type": "PostalAddress",
+     "addressLocality": "Kathmandu",
+     "addressCountry": "NP"
+    }
+   },
+   "hasOccupation": {
+    "@type": "Occupation",
+    "name": "Machine Learning Engineer",
+    "occupationLocation": {
+     "@type": "City",
+     "name": "Kathmandu"
+    },
+    "skills": "Python, Scikit-learn, TensorFlow, PyTorch, OpenCV, FastAPI, Flask, React, MongoDB, MySQL"
+   },
+   "alumniOf": [
+    {
+     "@type": "CollegeOrUniversity",
+     "name": "Tribhuvan University — Madan Bhandari Memorial College",
+     "address": {
+      "@type": "PostalAddress",
+      "addressLocality": "Kathmandu",
+      "addressCountry": "NP"
+     }
+    },
+    {
+     "@type": "EducationalOrganization",
+     "name": "Liverpool International College",
+     "address": {
+      "@type": "PostalAddress",
+      "addressLocality": "Kathmandu",
+      "addressCountry": "NP"
+     }
+    }
+   ],
+   "address": {
+    "@type": "PostalAddress",
+    "addressLocality": "Budhanilkantha",
+    "addressRegion": "Bagmati",
+    "addressCountry": "NP"
+   },
+   "homeLocation": {
+    "@type": "Place",
+    "name": "Budhanilkantha, Kathmandu, Nepal",
+    "geo": {
+     "@type": "GeoCoordinates",
+     "latitude": 27.7783,
+     "longitude": 85.362
+    }
+   },
+   "workLocation": {
+    "@type": "Place",
+    "name": "Kathmandu, Nepal"
+   },
+   "knowsLanguage": [
+    {
+     "@type": "Language",
+     "name": "Nepali"
+    },
+    {
+     "@type": "Language",
+     "name": "English"
+    },
+    {
+     "@type": "Language",
+     "name": "Hindi"
+    }
+   ],
+   "knowsAbout": [
+    "Machine Learning",
+    "Deep Learning",
+    "Computer Vision",
+    "Data Analysis",
+    "Python",
+    "Scikit-learn",
+    "TensorFlow",
+    "PyTorch",
+    "OpenCV",
+    "FastAPI",
+    "Flask",
+    "React",
+    "Node.js",
+    "MongoDB",
+    "MySQL",
+    "SQLite",
+    "Software Development"
+   ],
+   "award": [
+    "Winner, TechSprint Hackathon 2026, Nepal Engineering College",
+    "Winner, Tech Conclave 2024",
+    "Technical Category Winner, BPC Hackfest 2024",
+    "DataCamp Fellowship 2025"
+   ],
+   "sameAs": [
+    "https://github.com/MirajB1",
+    "https://www.linkedin.com/in/miraj-bhattarai-1122b6265/",
+    "https://www.instagram.com/bhattaraimiraj/"
+   ]
+  },
+  {
+   "@type": "CreativeWork",
+   "@id": "https://www.mirajbhattarai.com.np/#agnidrishti",
+   "name": "AgniDrishti Nepal",
+   "description": "AI wildfire prediction and early warning system for Nepal. Random Forest and Naive Bayes models score wildfire risk from weather, elevation and satellite fire-hotspot data, behind a JWT-secured FastAPI backend and a React front end with real-time hotspot mapping.",
+   "dateCreated": "2026",
+   "creator": {
+    "@id": "https://www.mirajbhattarai.com.np/#miraj"
+   },
+   "keywords": "machine learning, wildfire prediction, Random Forest, Naive Bayes, FastAPI, React, NASA FIRMS, Nepal"
+  },
+  {
+   "@type": "CreativeWork",
+   "@id": "https://www.mirajbhattarai.com.np/#qr-academic",
+   "name": "QR-Based Digital Academic System",
+   "description": "Paperless lab submissions for Tribhuvan University: per-student QR codes, batch scanning and three role-based portals. Winner, TechSprint Hackathon 2026.",
+   "dateCreated": "2026",
+   "creator": {
+    "@id": "https://www.mirajbhattarai.com.np/#miraj"
+   },
+   "keywords": "React, Vite, Tailwind CSS, Node.js, QR code, education technology"
+  },
+  {
+   "@type": "CreativeWork",
+   "@id": "https://www.mirajbhattarai.com.np/#snapspend",
+   "name": "SnapSpend",
+   "description": "Financial statement analyzer that extracts, categorizes and visualizes transactions from bank statement images and PDFs using Tesseract OCR and PyMuPDF.",
+   "dateCreated": "2025",
+   "creator": {
+    "@id": "https://www.mirajbhattarai.com.np/#miraj"
+   },
+   "keywords": "Python, Flask, OCR, Tesseract, PyMuPDF, Pandas, data visualization"
+  },
+  {
+   "@type": "CreativeWork",
+   "@id": "https://www.mirajbhattarai.com.np/#ecolog",
+   "name": "Project Ecolog",
+   "description": "Raspberry Pi forest fire and intrusion detection pairing real-time audio classification with Azure Custom Vision imaging. Winner, Tech Conclave 2024.",
+   "dateCreated": "2024",
+   "creator": {
+    "@id": "https://www.mirajbhattarai.com.np/#miraj"
+   },
+   "keywords": "Raspberry Pi, computer vision, audio classification, Azure Custom Vision, OpenCV, IoT"
+  }
+ ]
+}
+</script>
 </head>
 <body>
-   
-<header id="main-header">
-        <div class="container">
-            <div class="logo">
-                <a href="#hero">MIRAJ BHATTARAI</a>
-           
+
+<a class="skip" href="#main">Skip to content</a>
+
+<svg class="sprite" aria-hidden="true" focusable="false" xmlns="http://www.w3.org/2000/svg">
+  <symbol id="i-sun" viewBox="0 0 24 24"><circle cx="12" cy="12" r="4.2" fill="none" stroke="currentColor" stroke-width="1.7"/><path d="M12 2.6v2.2M12 19.2v2.2M2.6 12h2.2M19.2 12h2.2M5.4 5.4l1.6 1.6M17 17l1.6 1.6M18.6 5.4 17 7M7 17l-1.6 1.6" stroke="currentColor" stroke-width="1.7" stroke-linecap="round"/></symbol>
+  <symbol id="i-moon" viewBox="0 0 24 24"><path d="M20 14.2A8.2 8.2 0 0 1 9.8 4a8.4 8.4 0 1 0 10.2 10.2Z" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linejoin="round"/></symbol>
+  <symbol id="i-github" viewBox="0 0 24 24"><path d="M12 2a10 10 0 0 0-3.16 19.49c.5.09.68-.22.68-.48v-1.7c-2.78.6-3.37-1.34-3.37-1.34-.45-1.16-1.11-1.47-1.11-1.47-.91-.62.07-.61.07-.61 1 .07 1.53 1.03 1.53 1.03.9 1.53 2.36 1.09 2.94.84.09-.65.35-1.09.63-1.34-2.22-.25-4.56-1.11-4.56-4.94 0-1.09.39-1.98 1.03-2.68-.1-.25-.45-1.27.1-2.65 0 0 .84-.27 2.75 1.02a9.5 9.5 0 0 1 5 0c1.91-1.29 2.75-1.02 2.75-1.02.55 1.38.2 2.4.1 2.65.64.7 1.03 1.59 1.03 2.68 0 3.84-2.34 4.69-4.57 4.94.36.31.68.92.68 1.85v2.74c0 .27.18.58.69.48A10 10 0 0 0 12 2Z" fill="currentColor"/></symbol>
+  <symbol id="i-linkedin" viewBox="0 0 24 24"><path d="M4.98 3.5A2.5 2.5 0 1 0 5 8.5a2.5 2.5 0 0 0-.02-5ZM3 9.5h4v11H3v-11Zm7 0h3.8v1.5h.06A4.17 4.17 0 0 1 17.6 9.2c3.6 0 4.4 2.3 4.4 5.3v6h-4v-5.3c0-1.27-.02-2.9-1.8-2.9s-2.1 1.38-2.1 2.8v5.4h-4v-11Z" fill="currentColor"/></symbol>
+  <symbol id="i-mail" viewBox="0 0 24 24"><rect x="3" y="5" width="18" height="14" rx="2.5" fill="none" stroke="currentColor" stroke-width="1.7"/><path d="m3.5 7.5 8.5 6 8.5-6" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round"/></symbol>
+  <symbol id="i-insta" viewBox="0 0 24 24"><rect x="3" y="3" width="18" height="18" rx="5" fill="none" stroke="currentColor" stroke-width="1.7"/><circle cx="12" cy="12" r="4" fill="none" stroke="currentColor" stroke-width="1.7"/><circle cx="17.2" cy="6.8" r="1.2" fill="currentColor"/></symbol>
+  <symbol id="i-arrow" viewBox="0 0 24 24"><path d="M5 12h14M13 6l6 6-6 6" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></symbol>
+  <symbol id="i-down" viewBox="0 0 24 24"><path d="M12 4v14M6 13l6 6 6-6" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></symbol>
+  <symbol id="i-copy" viewBox="0 0 24 24"><rect x="9" y="9" width="11" height="11" rx="2.2" fill="none" stroke="currentColor" stroke-width="1.7"/><path d="M15 6.5A2.5 2.5 0 0 0 12.5 4h-6A2.5 2.5 0 0 0 4 6.5v6A2.5 2.5 0 0 0 6.5 15" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round"/></symbol>
+  <symbol id="i-check" viewBox="0 0 24 24"><path d="m5 12.5 4.5 4.5L19 7" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></symbol>
+  <symbol id="i-eye" viewBox="0 0 24 24"><path d="M2.5 12S6 5.8 12 5.8 21.5 12 21.5 12 18 18.2 12 18.2 2.5 12 2.5 12Z" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linejoin="round"/><circle cx="12" cy="12" r="2.9" fill="none" stroke="currentColor" stroke-width="1.7"/></symbol>
+</svg>
+
+<!-- ══════════════ intro ══════════════ -->
+<div class="boot" id="boot" role="status" aria-live="polite" aria-label="Loading">
+  <div class="boot-in">
+    <p class="boot-name">
+      <span class="bm"><b>MIRAJ</b></span>
+      <span class="bm"><b>BHATTARAI</b></span>
+    </p>
+    <span class="boot-rule" aria-hidden="true"></span>
+    <p class="boot-sub">machine learning &middot; kathmandu</p>
+  </div>
 </div>
-            <nav>
-                <button class="menu-toggle" id="mobile-menu" aria-label="Open navigation menu" aria-expanded="false">
-                   
-<span class="bar"></span><span class="bar"></span><span class="bar"></span>
-       
-        </button>
-                <ul class="nav-list">
-                   
-<li><a href="#hero" class="active-link">Home</a></li>
-                    <li><a href="#about">About</a></li>
-                    <li><a href="#skills">Skills</a></li>
-                    <li><a href="#education">Education</a></li>
-           
-        <li><a href="#events">Achievements</a></li>
-                    <li><a href="#contact">Contact</a></li>
-                </ul>
-            </nav>
-      
- </div>
-    </header>
 
-    <main>
-        <section id="hero">
-            <div class="container hero-content-container">
-                <div class="hero-text">
-                    <h1 class="hero-greeting">Hello, I'm <span class="highlight-name">Miraj</span>.</h1>
-                    <p class="hero-tagline">An aspiring Software Developer with a deep passion for <span class="ai-ml-highlight">Artificial Intelligence & Machine Learning</span>.</p>
-                    <p class="hero-sub-tagline">I thrive on solving complex problems, developing innovative projects, and continuously exploring emerging technologies in the AI/ML space.</p>
-                    <div class="hero-buttons">
-                        <a href="docs/Miraj_Bhattarai.pdf" class="btn btn-primary" download="Miraj Bhattarai_CV.pdf">
-                            <i class="fas fa-download"></i> Download CV
-                      </a>
-                        <a href="#contact" class="btn btn-secondary">Get in Touch</a>
-                    </div>
-                </div>
-                <div class="hero-image">
-                    <img src="images/miraj-photo.jpg" alt="Miraj Bhattarai">
-                    <p class="sanskrit-sloka">
-                        ज्ञानं परमं बलम् |<br>
-                        <!-- Jñānaṁ paramaṁ balam | -->
-                    </p>
-                     <p class="sloka-meaning">
-                        <em>"Knowledge is the supreme strength."</em>
-                    </p>
-                </div>
-           
-</div>
-        </section>
+<!-- ══════════════ top bar ══════════════ -->
+<header class="bar" id="bar">
+  <div class="wrap bar-in">
+    <a class="prompt-brand" href="#top">
+      <span class="pb-user">miraj</span><span class="pb-at">@</span><span class="pb-host">portfolio</span><span class="pb-path">:~$</span>
+    </a>
 
-        <section id="about" class="content-section">
-      
-     <div class="container">
-                <h2 class="section-title"><span class="diamond-icon">◆</span> About Me</h2>
-                <div class="about-content-grid">
-                    <div class="about-image-container">
-              <img src="images/second.jpg" alt="Miraj Bhattarai - About" class="about-image">
-                    </div>
-                    <div class="about-text-container">
-                        <p>
-                            I am an enthusiastic and dedicated Software Developer currently pursuing my Bachelor of Science in Computer Science and Information Technology. My core technical strengths lie in C, C++, and Python, and I am deeply invested in the fields of Artificial Intelligence and Machine Learning.
-                        </p>
-        <p>
-                            My journey includes hands-on experience in organizing hackathons and contributing to innovative project development. I am driven by a curiosity for problem-solving, a love for coding, and a commitment to staying at the forefront of technological advancements, particularly within AI and ML.
-                        </p>
-                        <h4>Currently Focused On:</h4>
-<ul>
-  <li>SQL & Database Management</li>
-  <li>Data Analysis with Excel</li>
-</ul>
-                        <div class="connect-links">
-                      <h4>Connect with Me:</h4>
-                            <a href="https://www.linkedin.com/in/miraj-bhattarai-1122b6265/" target="_blank" rel="noopener noreferrer"><i class="fab fa-linkedin"></i> LinkedIn</a>
-                           <a href="https://github.com/MirajB1" target="_blank" rel="noopener noreferrer"><i class="fab fa-github"></i> GitHub</a>
-                            <a href="https://www.facebook.com/miraj.bhattarai.944" target="_blank" rel="noopener noreferrer"><i class="fab fa-facebook"></i> Facebook</a>
-                            <a href="https://www.instagram.com/bhattaraimiraj/" target="_blank" rel="noopener noreferrer"><i class="fab fa-instagram"></i> Instagram</a>
-      <a href="mailto:mirajbhattarai7@gmail.com"><i class="fas fa-envelope"></i> Email</a>
-                        </div>
-                    </div>
-     </div>
-            </div>
-        </section>
+    <nav class="nav" id="nav" aria-label="Primary">
+      <ul>
+        <li><a href="#about"><span class="slash">./</span>about</a></li>
+        <li><a href="#experience"><span class="slash">./</span>experience</a></li>
+        <li><a href="#projects"><span class="slash">./</span>projects</a></li>
+        <li><a href="#skills"><span class="slash">./</span>skills</a></li>
+        <li><a href="#contact"><span class="slash">./</span>contact</a></li>
+      </ul>
+    </nav>
 
-        <section id="skills" class="content-section alt-bg">
-            <div class="container">
-    <h2 class="section-title collapsible-trigger">
-                    <span class="diamond-icon">◆</span> Technical Skills <span class="toggle-icon">+</span>
-               </h2>
-                <div class="collapsible-content">
-           <div class="skills-layout">
-                        <div class="skill-group">
-                            <h3>Programming & AI/ML</h3>
-              <ul>
-                                <li>Python (NumPy, Pandas, Matplotlib, Seaborn, Scikit-learn)</li>
-                                <li>C, C++</li>
-                                <li>Machine Learning Algorithms (Regression, Classification, Clustering)</li>
-                                <li>Deep Learning (Conceptual: CNNs, RNNs)</li>
-                                <li>Data Preprocessing & Feature Engineering</li>
-                                <li>Model Evaluation & Validation</li>
-                                <li>Basic Statistics for AI</li>
-                            </ul>
-                        </div>
+    <div class="bar-right">
+      <span class="visits" id="visits" hidden title="Visitors to this site">
+        <svg class="ic" aria-hidden="true"><use href="#i-eye"/></svg>
+        <span id="visitsCount">—</span>
+      </span>
+      <button class="tbtn" id="themeBtn" type="button" aria-label="Switch theme" title="Switch theme">
+        <svg class="ic ic-sun" aria-hidden="true"><use href="#i-sun"/></svg>
+        <svg class="ic ic-moon" aria-hidden="true"><use href="#i-moon"/></svg>
+      </button>
+      <button class="burger" id="burger" type="button" aria-label="Open menu" aria-expanded="false" aria-controls="nav">
+        <span></span><span></span>
+      </button>
+    </div>
+  </div>
+</header>
 
-                       <div class="skill-group">
-                           <h3>Web & Database</h3>
-                            <ul>
-      <li>HTML5, CSS3</li>
-                                <li>JavaScript (ES6+)</li>
-                                <li>jQuery</li>
-      <li>PHP (Procedural & Basic OOP)</li>
-                               <li>phpMyAdmin (MySQL/MariaDB Interaction)</li>
-                               <li>Git & GitHub</li>
-                            </ul>
-                       </div>
-                        <div class="skill-group">
-                          <h3>Software & Tools</h3>
-                            <ul>
-            <li>MS Office Suite (Word, Excel, PowerPoint)</li>
-               <li>Data Entry & Analysis Tools</li>
-    <li>Data Visualization Tools (Matplotlib, Seaborn)</li>
-            <li>IDE/Editors (VS Code, Dev-C++, etc.)</li>
-          <li>Basic UI/UX Principles</li>
-                               <li>Fluent in English, Nepali, and Hindi</li>
-                            </ul>
-     </div>
-                    </div>
-                </div>
-       </div>
-        </section>
+<main id="main">
 
-        <section id="education" class="content-section">
-            <div class="container">
-                <h2 class="section-title collapsible-trigger">
-                    <span class="diamond-icon">◆</span> Education <span class="toggle-icon">+</span>
-                </h2>
-         <div class="collapsible-content">
-                    <div class="education-entry">
-                        <div class="education-header">
-                <h3>Bachelor of Science in Computer Science and Information Technology</h3>
-                            <span class="dates">2023 A.D. - 2026 A.D. (Expected)</span>
-                        </div>
-                        <p class="institution">Tribhuwan University</p>
-                        <p class="college">Madan Bhandari Memorial College, Kathmandu</p>
-                       <ul>
-                            <li>Currently in 7th semester, with no backlogs.</li>
-                            <li>Consistently maintaining CGPA above 3.0 in all semesters to date.</li>
-                            <li>Focus areas: Software Development, Artificial Intelligence, Data Science.</li>
-                     </ul>
-                    </div>
-                    <div class="education-entry">
-                        <div class="education-header">
-        <h3>Higher Secondary Education (NEB)</h3>
-                           <span class="dates">2020 A.D. - 2022 A.D.</span>
-                        </div>
-                      <p class="institution">Liverpool International College, Kathmandu</p>
-                        <ul>
-                            <li>Major: Science (Computer Science Focus)</li>
-                            <li>Final CGPA: 3.01</li>
-                        </ul>
-                    </div>
-     </div>
-            </div>
-        </section>
+  <!-- ══════════════ hero ══════════════ -->
+  <section class="hero" id="top">
+    <div class="scan" aria-hidden="true"></div>
+    <div class="wrap hero-in">
 
-        <section id="events" class="content-section alt-bg">
-            <div class="container">
-    <h2 class="section-title collapsible-trigger">
-                    <span class="diamond-icon">◆</span> Achievements & Participation <span class="toggle-icon">+</span>
-                </h2>
-                <div class="collapsible-content">
-                    <ul class="achievements-list">
-<li><i class="fas fa-trophy"></i> Winner Of Tech Conclave 2024.</li>
-           <li><i class="fas fa-medal"></i> Technical Category Winner of BPC hackfest 2024.</li>
-                        <li><i class="fas fa-cogs"></i> Operations Lead in IdeaX 2024.</li>
-                        <li><i class="fas fa-users"></i> Organizing Committee Member in Hult Prize at MBMC.</li>
-      <li><i class="fas fa-graduation-cap"></i> DataCamp Fellowship 2025.</li>
-                       <li><i class="fas fa-lightbulb"></i> Actively participate in coding competitions and AI/ML workshops.</li>
-                       <li><i class="fas fa-lightbulb"></i> Winner Of TechSprint Hackathon 2026(NEC).</li>
-                    </ul>
-   
-            </div>
-            </div>
-        </section>
+      <div class="hero-text">
+        <p class="cmd r" style="--d:.02s"><span class="ps1">$</span> whoami</p>
 
-        <section id="contact" class="content-section">
-            <div class="container">
-     <h2 class="section-title"><span class="diamond-icon">◆</span> Get In Touch</h2>
-                <p class="contact-intro">I'm always excited to discuss new projects, innovative ideas, or opportunities related to Software Development and AI/ML. Feel free to reach out!</p>
-                <div class="contact-methods">
-                    <div class="contact-method">
-                        <i class="fas fa-envelope fa-2x"></i>
-                        <h4>Email</h4>
-                <p><a href="mailto:mirajbhattarai7@gmail.com">mirajbhattarai7@gmail.com</a></p>
-                        <p><a href="mailto:mirajbhattarai71@gmail.com">mirajbhattarai71@gmail.com</a></p>
-                    </div>
-         <div class="contact-method">
-                        <i class="fas fa-phone fa-2x"></i>
-                        <h4>Phone</h4>
-                       <p><a href="tel:+9779863977099">+977 9863977099</a></p>
-                   </div>
-                    <div class="contact-method">
-                        <i class="fas fa-map-marker-alt fa-2x"></i>
-                       <h4>Location</h4>
-                        <p>Kapan, Kathmandu, Nepal</p>
-                   </div>
-                </div>
-                <div class="social-links-footer">
-  <a href="https://www.linkedin.com/in/miraj-bhattarai-1122b6265/" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn"><i class="fab fa-linkedin"></i></a>
-                    <a href="https://github.com/MirajB1" target="_blank" rel="noopener noreferrer" aria-label="GitHub"><i class="fab fa-github"></i></a>
-                    <a href="https://www.facebook.com/miraj.bhattarai.944" target="_blank" rel="noopener noreferrer" aria-label="Facebook"><i class="fab fa-facebook"></i></a>
-                    <a href="https://www.instagram.com/bhattaraimiraj/" target="_blank" rel="noopener noreferrer" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
-                </div>
-           
-</div>
-        </section>
-    </main>
+        <h1 class="hero-name r" style="--d:.06s">Miraj Bhattarai<span class="caret" aria-hidden="true"></span></h1>
 
-    <footer id="main-footer">
-       
-<div class="container">
-            <p>© <span id="currentYear"></span> Miraj Bhattarai. Crafted with Procastination.</p>
+        <p class="hero-role r" style="--d:.1s">
+          <span class="tag-ml">Machine&nbsp;Learning&nbsp;Intern</span>
+          <span class="at">@</span>
+          <span class="org">Techkey Technology Pvt. Ltd.</span>
+        </p>
+
+        <p class="hero-desc r" style="--d:.14s">
+          Final-year B.Sc. CSIT student in Kathmandu. I train models in Python and build the
+          APIs and interfaces that put them in front of people — wildfire risk across Nepal,
+          OCR on messy bank statements, sensors watching a forest.
+        </p>
+
+        <div class="hero-btns r" style="--d:.18s">
+          <a class="btn btn-p" href="docs/Miraj_Bhattarai_CV.pdf" download="Miraj_Bhattarai_CV.pdf">
+            <span class="ps1">$</span> get résumé <svg class="ic" aria-hidden="true"><use href="#i-down"/></svg>
+          </a>
+          <a class="btn" href="#projects"><span class="ps1">$</span> ls projects <svg class="ic" aria-hidden="true"><use href="#i-arrow"/></svg></a>
         </div>
-    </footer>
 
-    <script src="js/script.js"></script>
+        <ul class="hero-meta r" style="--d:.22s">
+          <li><span class="k">status</span><span class="v ok">open to ML &amp; software roles</span></li>
+          <li><span class="k">based</span><span class="v">Kathmandu, Nepal · UTC+5:45</span></li>
+          <li><span class="k">wins</span><span class="v">3 hackathons</span></li>
+        </ul>
+      </div>
+
+      <div class="hero-fig r" style="--d:.12s">
+        <div class="win">
+          <div class="win-bar"><i></i><i></i><i></i><span>~/miraj.png</span></div>
+          <div class="win-body photo">
+            <picture>
+              <source srcset="images/miraj.webp" type="image/webp">
+              <img src="images/miraj.png" alt="Miraj Bhattarai, machine learning intern and software developer based in Kathmandu, Nepal" width="1000" height="912" fetchpriority="high">
+            </picture>
+          </div>
+        </div>
+        <p class="sloka"><span lang="sa">ज्ञानं परमं बलम्</span><em>knowledge is the supreme strength</em></p>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ══════════════ about ══════════════ -->
+  <section class="sec" id="about">
+    <div class="wrap">
+      <h2 class="sec-h r"><span class="n" aria-hidden="true">01</span><span aria-hidden="true"><span class="ps1">$</span> cat about.md</span><span class="vh">About Miraj Bhattarai</span></h2>
+      <div class="win r" style="--d:.05s">
+        <div class="win-bar"><i></i><i></i><i></i><span>about.md</span></div>
+        <div class="win-body prose">
+          <p>I'm in the final year of a <b>B.Sc. in Computer Science &amp; Information Technology</b> at
+          Tribhuvan University, and I currently work as a <b>Machine Learning Intern at Techkey
+          Technology Pvt. Ltd.</b> in Kathmandu — building and training models in Python, running
+          experiments, and turning the ones that work into code the team can maintain.</p>
+
+          <p>Almost everything I've built started as a real problem, not a tutorial. A wildfire
+          risk system for Nepal that pulls live satellite and weather data. A QR system that
+          replaced a university's paper lab submissions. An OCR tool that reads bank statements
+          nobody wants to type out. A Raspberry Pi in a forest listening for gunshots and smoke.</p>
+
+          <p>What I actually enjoy is the whole path — cleaning the data, choosing the model,
+          arguing with the evaluation metrics, then building the API and the screen that make
+          any of it useful to a person who will never see the notebook.</p>
+
+          <p class="prose-foot"><span class="ps1">#</span> currently going deeper on deep learning with PyTorch, and on getting models into production properly.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ══════════════ experience ══════════════ -->
+  <section class="sec" id="experience">
+    <div class="wrap">
+      <h2 class="sec-h r"><span class="n" aria-hidden="true">02</span><span aria-hidden="true"><span class="ps1">$</span> tail -f experience.log</span><span class="vh">Experience</span></h2>
+
+      <div class="win r" style="--d:.05s">
+        <div class="win-bar"><i></i><i></i><i></i><span>experience.log</span></div>
+        <div class="win-body log">
+          <div class="log-head">
+            <div>
+              <h3>Machine Learning Intern</h3>
+              <p class="log-org">Techkey Technology Pvt. Ltd. · Kathmandu, Nepal</p>
+            </div>
+            <span class="live"><span class="dot"></span>Aug 2026 — present</span>
+          </div>
+          <ul class="log-list">
+            <li><span class="lv">INFO</span> Build and train machine learning models in Python with Scikit-learn, TensorFlow and PyTorch — data preprocessing, feature engineering, hyperparameter tuning, and evaluation on accuracy, precision and recall.</li>
+            <li><span class="lv">INFO</span> Research and prototype candidate approaches for assigned problems, running structured experiments and benchmarking every model against a baseline before one is taken forward.</li>
+            <li><span class="lv">INFO</span> Document datasets, model architectures and experiment results so training runs stay reproducible and reviewable by the wider team.</li>
+            <li><span class="lv">INFO</span> Refactor research prototypes into modular Python, working through code review with senior engineers.</li>
+          </ul>
+          <ul class="chips">
+            <li>Python</li><li>Scikit-learn</li><li>TensorFlow</li><li>PyTorch</li><li>Model evaluation</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ══════════════ projects ══════════════ -->
+  <section class="sec" id="projects">
+    <div class="wrap">
+      <h2 class="sec-h r"><span class="n" aria-hidden="true">03</span><span aria-hidden="true"><span class="ps1">$</span> ls -la projects/</span><span class="vh">Machine learning and software projects</span></h2>
+      <p class="sec-sub r" style="--d:.04s">Four builds. Pick one to open it.</p>
+
+      <div class="pj r" style="--d:.08s">
+        <div class="pj-list" role="tablist" aria-label="Projects">
+          <button class="pj-tab is-on" role="tab" aria-selected="true" aria-controls="pj-1" id="tab-1" data-i="1">
+            <span class="pj-i">01</span>
+            <span class="pj-n">agnidrishti-nepal</span>
+            <span class="pj-y">2026</span>
+          </button>
+          <button class="pj-tab" role="tab" aria-selected="false" aria-controls="pj-2" id="tab-2" data-i="2">
+            <span class="pj-i">02</span>
+            <span class="pj-n">qr-academic-system</span>
+            <span class="pj-y">2026</span>
+          </button>
+          <button class="pj-tab" role="tab" aria-selected="false" aria-controls="pj-3" id="tab-3" data-i="3">
+            <span class="pj-i">03</span>
+            <span class="pj-n">snapspend</span>
+            <span class="pj-y">2025</span>
+          </button>
+          <button class="pj-tab" role="tab" aria-selected="false" aria-controls="pj-4" id="tab-4" data-i="4">
+            <span class="pj-i">04</span>
+            <span class="pj-n">project-ecolog</span>
+            <span class="pj-y">2024</span>
+          </button>
+        </div>
+
+        <div class="pj-panes">
+          <article class="pj-pane is-on" role="tabpanel" id="pj-1" aria-labelledby="tab-1" tabindex="0">
+            <header class="pj-head">
+              <p class="pj-path"><span class="ps1">$</span> cat projects/agnidrishti-nepal/README.md</p>
+              <h3>AgniDrishti Nepal</h3>
+              <p class="pj-sub">AI wildfire prediction &amp; early warning system for Nepal</p>
+              <p class="pj-badges"><span class="badge b-major">final year major project</span></p>
+            </header>
+
+            <dl class="pj-def">
+              <div><dt>problem</dt><dd>Wildfires spread across Nepal faster than anyone can report them, and the people at risk find out last.</dd></div>
+              <div><dt>approach</dt><dd>Custom-trained Random Forest and Naive Bayes models scoring wildfire risk from weather, elevation and satellite fire-hotspot data — with Vapour Pressure Deficit computed as an engineered feature.</dd></div>
+              <div><dt>build</dt><dd>A JWT-secured FastAPI backend with role-based access for admins and the public, live incident reporting, automated full-country risk scans, and a React front end with real-time hotspot mapping.</dd></div>
+              <div><dt>data</dt><dd>NASA FIRMS · OpenWeatherMap · Open-Elevation</dd></div>
+            </dl>
+
+            <ul class="chips">
+              <li>React</li><li>FastAPI</li><li>MongoDB</li><li>Scikit-learn</li><li>Random Forest</li><li>Naive Bayes</li>
+            </ul>
+          </article>
+
+          <article class="pj-pane" role="tabpanel" id="pj-2" aria-labelledby="tab-2" tabindex="0" hidden>
+            <header class="pj-head">
+              <p class="pj-path"><span class="ps1">$</span> cat projects/qr-academic-system/README.md</p>
+              <h3>QR-Based Digital Academic System</h3>
+              <p class="pj-sub">Paperless lab submissions for Tribhuvan University</p>
+              <p class="pj-badges"><span class="badge b-win">winner · TechSprint Hackathon 2026</span></p>
+            </header>
+
+            <dl class="pj-def">
+              <div><dt>problem</dt><dd>Lab submissions ran on paper — stacks of it — and evaluation days crawled while staff hunted for the right sheet.</dd></div>
+              <div><dt>approach</dt><dd>Give every student a unique QR code that pulls their record instantly, and let evaluators batch-scan a whole class instead of shuffling paper.</dd></div>
+              <div><dt>build</dt><dd>Three role-based portals — student, teacher, external evaluator — with real-time notifications, voice feedback for evaluators, and a mobile-first interface. 201+ commits across the team.</dd></div>
+              <div><dt>result</dt><dd>Manual paperwork removed from the process and evaluation time cut. Won the hackathon.</dd></div>
+            </dl>
+
+            <ul class="chips"><li>React</li><li>Vite</li><li>Tailwind CSS</li><li>Node.js</li><li>JavaScript</li></ul>
+          </article>
+
+          <article class="pj-pane" role="tabpanel" id="pj-3" aria-labelledby="tab-3" tabindex="0" hidden>
+            <header class="pj-head">
+              <p class="pj-path"><span class="ps1">$</span> cat projects/snapspend/README.md</p>
+              <h3>SnapSpend</h3>
+              <p class="pj-sub">Financial statement analyzer</p>
+              <p class="pj-badges"><span class="badge">personal project</span></p>
+            </header>
+
+            <dl class="pj-def">
+              <div><dt>problem</dt><dd>Understanding your own spending means retyping a bank statement, so nobody does it.</dd></div>
+              <div><dt>approach</dt><dd>Take a photo or a PDF and pull the transactions out automatically — Tesseract OCR for scans, PyMuPDF for digital PDFs, so both paths work.</dd></div>
+              <div><dt>build</dt><dd>Rule-based expense categorization over the extracted rows, then Chart.js dashboards showing spending breakdowns, net cash flow and top expense categories.</dd></div>
+            </dl>
+
+            <ul class="chips"><li>Python</li><li>Flask</li><li>Tesseract OCR</li><li>PyMuPDF</li><li>Pandas</li><li>Chart.js</li></ul>
+          </article>
+
+          <article class="pj-pane" role="tabpanel" id="pj-4" aria-labelledby="tab-4" tabindex="0" hidden>
+            <header class="pj-head">
+              <p class="pj-path"><span class="ps1">$</span> cat projects/project-ecolog/README.md</p>
+              <h3>Project Ecolog</h3>
+              <p class="pj-sub">Forest fire &amp; intrusion detection on a Raspberry Pi</p>
+              <p class="pj-badges"><span class="badge b-win">winner · Tech Conclave 2024</span><span class="badge b-win">technical category · BPC Hackfest 2024</span></p>
+            </header>
+
+            <dl class="pj-def">
+              <div><dt>problem</dt><dd>A forest can't tell you it's burning, and by the time smoke is visible from a road it's already late.</dd></div>
+              <div><dt>approach</dt><dd>Put ears and eyes in the trees: real-time audio classification for gunshots and smoke, paired with computer vision on the same device.</dd></div>
+              <div><dt>build</dt><dd>Raspberry Pi running the classifiers, Azure Custom Vision for smoke and fire imagery, Azure Blob Storage archiving frames for later analysis. Triggers hardware alerts and streams live data to a web dashboard.</dd></div>
+              <div><dt>team</dt><dd>Four people. Two wins.</dd></div>
+            </dl>
+
+            <ul class="chips"><li>Python</li><li>Raspberry Pi</li><li>Azure Custom Vision</li><li>Azure Blob Storage</li><li>OpenCV</li></ul>
+          </article>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ══════════════ skills ══════════════ -->
+  <section class="sec" id="skills">
+    <div class="wrap">
+      <h2 class="sec-h r"><span class="n" aria-hidden="true">04</span><span aria-hidden="true"><span class="ps1">$</span> ls skills/</span><span class="vh">Technical skills</span></h2>
+      <p class="sec-sub r" style="--d:.04s">Only what I've actually built with.</p>
+
+      <div class="sk r" style="--d:.08s">
+        <div class="sk-row"><span class="sk-k">languages/</span><ul class="chips"><li>Python</li><li>JavaScript</li><li>C</li><li>C++</li><li>Java</li></ul></div>
+        <div class="sk-row"><span class="sk-k">machine-learning/</span><ul class="chips"><li>Scikit-learn</li><li>TensorFlow</li><li>PyTorch</li><li>OpenCV</li><li>Random Forest</li><li>Naive Bayes</li></ul></div>
+        <div class="sk-row"><span class="sk-k">data/</span><ul class="chips"><li>NumPy</li><li>Pandas</li><li>Matplotlib</li><li>Seaborn</li></ul></div>
+        <div class="sk-row"><span class="sk-k">backend/</span><ul class="chips"><li>FastAPI</li><li>Flask</li><li>Node.js</li><li>JWT auth</li></ul></div>
+        <div class="sk-row"><span class="sk-k">frontend/</span><ul class="chips"><li>React</li><li>Vite</li><li>HTML5</li><li>CSS3</li><li>Tailwind CSS</li></ul></div>
+        <div class="sk-row"><span class="sk-k">databases/</span><ul class="chips"><li>MySQL</li><li>SQLite</li><li>MongoDB</li></ul></div>
+        <div class="sk-row"><span class="sk-k">tools/</span><ul class="chips"><li>Git</li><li>GitHub</li><li>Linux</li><li>VS Code</li><li>Figma</li><li>Vercel</li><li>Render</li><li>Raspberry Pi</li><li>Azure</li></ul></div>
+        <div class="sk-row"><span class="sk-k">spoken/</span><ul class="chips"><li>Nepali — native</li><li>English — fluent</li><li>Hindi — fluent</li></ul></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ══════════════ education ══════════════ -->
+  <section class="sec" id="education">
+    <div class="wrap">
+      <h2 class="sec-h r"><span class="n" aria-hidden="true">05</span><span aria-hidden="true"><span class="ps1">$</span> cat education.txt awards.txt</span><span class="vh">Education and awards</span></h2>
+
+      <div class="edu r" style="--d:.05s">
+        <div class="win">
+          <div class="win-bar"><i></i><i></i><i></i><span>education.txt</span></div>
+          <div class="win-body">
+            <div class="edu-item">
+              <div class="edu-top"><h3>B.Sc. Computer Science &amp; Information Technology</h3><span class="edu-y">2023 — 2026</span></div>
+              <p class="edu-org">Tribhuvan University · Madan Bhandari Memorial College, Kathmandu</p>
+              <p class="edu-note">CGPA 3.0+ across all semesters, no backlogs.</p>
+            </div>
+            <div class="edu-item">
+              <div class="edu-top"><h3>Higher Secondary (NEB, +2 Science)</h3><span class="edu-y">2020 — 2022</span></div>
+              <p class="edu-org">Liverpool International College, Kathmandu</p>
+              <p class="edu-note">CGPA 3.01.</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="win">
+          <div class="win-bar"><i></i><i></i><i></i><span>awards.txt</span></div>
+          <div class="win-body">
+            <ul class="awards">
+              <li><span class="aw-y">2026</span><span><b>Winner</b> — TechSprint Hackathon, Nepal Engineering College</span></li>
+              <li><span class="aw-y">2025</span><span><b>DataCamp Fellowship</b></span></li>
+              <li><span class="aw-y">2025</span><span><b>Lead Organizer</b> — MBMC IdeaX</span></li>
+              <li><span class="aw-y">2025</span><span><b>Organizing Committee</b> — Hult Prize at MBMC</span></li>
+              <li><span class="aw-y">2024</span><span><b>Winner</b> — Tech Conclave</span></li>
+              <li><span class="aw-y">2024</span><span><b>Technical Category Winner</b> — BPC Hackfest</span></li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ══════════════ contact ══════════════ -->
+  <section class="sec" id="contact">
+    <div class="wrap">
+      <h2 class="sec-h r"><span class="n" aria-hidden="true">06</span><span aria-hidden="true"><span class="ps1">$</span> ./contact --now</span><span class="vh">Contact</span></h2>
+
+      <div class="win r" style="--d:.05s">
+        <div class="win-bar"><i></i><i></i><i></i><span>contact</span></div>
+        <div class="win-body contact-body">
+          <p class="ct-lede">
+            Open to machine learning and software engineering roles, internships and collaborations —
+            Kathmandu or remote. The fastest way to reach me is email.
+          </p>
+
+          <dl class="ct-list">
+            <div>
+              <dt>email</dt>
+              <dd>
+                <a href="mailto:mirajbhattarai7@gmail.com">mirajbhattarai7@gmail.com</a>
+                <button class="copy" type="button" data-copy="mirajbhattarai7@gmail.com">
+                  <svg class="ic" aria-hidden="true"><use href="#i-copy"/></svg><span>copy</span>
+                </button>
+              </dd>
+            </div>
+            <div><dt>phone</dt><dd><a href="tel:+9779863977099">+977 9863977099</a></dd></div>
+            <div><dt>location</dt><dd>Budhanilkantha, Kathmandu, Nepal</dd></div>
+          </dl>
+
+          <div class="ct-btns">
+            <a class="btn btn-p" href="mailto:mirajbhattarai7@gmail.com"><span class="ps1">$</span> send mail <svg class="ic" aria-hidden="true"><use href="#i-arrow"/></svg></a>
+            <a class="btn" href="docs/Miraj_Bhattarai_CV.pdf" download="Miraj_Bhattarai_CV.pdf"><span class="ps1">$</span> résumé.pdf <svg class="ic" aria-hidden="true"><use href="#i-down"/></svg></a>
+          </div>
+
+          <ul class="socials">
+            <li><a href="https://github.com/MirajB1" target="_blank" rel="noopener noreferrer" aria-label="GitHub"><svg class="ic" aria-hidden="true"><use href="#i-github"/></svg></a></li>
+            <li><a href="https://www.linkedin.com/in/miraj-bhattarai-1122b6265/" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn"><svg class="ic" aria-hidden="true"><use href="#i-linkedin"/></svg></a></li>
+            <li><a href="https://www.instagram.com/bhattaraimiraj/" target="_blank" rel="noopener noreferrer" aria-label="Instagram"><svg class="ic" aria-hidden="true"><use href="#i-insta"/></svg></a></li>
+            <li><a href="mailto:mirajbhattarai7@gmail.com" aria-label="Email"><svg class="ic" aria-hidden="true"><use href="#i-mail"/></svg></a></li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<footer class="foot">
+  <div class="wrap foot-in">
+    <p><span class="ps1">$</span> exit &nbsp;— © <span id="year">2026</span> Miraj Bhattarai</p>
+    <p class="foot-b">handwritten HTML, CSS &amp; JavaScript · no frameworks</p>
+  </div>
+</footer>
+
+<script src="js/script.js" defer></script>
 </body>
 </html>
