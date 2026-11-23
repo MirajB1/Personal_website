@@ -1,9 +1,10 @@
 # Miraj Bhattarai
 
-> Machine Learning Intern at Techkey Technology Pvt. Ltd. and final-year B.Sc.
-> Computer Science and Information Technology student at Tribhuvan University,
-> based in Budhanilkantha, Kathmandu, Nepal. Builds and trains machine learning
-> models in Python and the APIs and interfaces around them.
+> Associate Machine Learning Engineer at Techkey Technology Pvt. Ltd. and
+> freelance full-stack developer, based in Budhanilkantha, Kathmandu, Nepal.
+> Builds, trains and fine-tunes machine learning models in Python and the APIs
+> and interfaces around them. B.Sc. Computer Science and Information Technology,
+> Tribhuvan University.
 
 Site: https://www.mirajbhattarai.com.np/
 Contact: mirajbhattarai7@gmail.com · +977 9863977099
@@ -13,15 +14,24 @@ Location: Budhanilkantha, Kathmandu, Nepal (UTC+05:45)
 Available for: machine learning and software engineering roles, internships and
 collaborations, in Kathmandu or remote.
 
-## Current role
+## Current roles
 
-Machine Learning Intern, Techkey Technology Pvt. Ltd., Kathmandu — August 2026 to
-present. Builds and trains models in Python with Scikit-learn, TensorFlow and
-PyTorch, covering data preprocessing, feature engineering, hyperparameter tuning
-and evaluation on accuracy, precision and recall. Researches and prototypes
-candidate approaches, benchmarks every model against a baseline, documents
-datasets and experiment results for reproducibility, and refactors research
-prototypes into modular Python reviewed by senior engineers.
+**Associate Machine Learning Engineer**, Techkey Technology Pvt. Ltd., Kathmandu —
+November 2026 to present, promoted from Machine Learning Intern (August 2026 to
+November 2026). Builds, trains and fine-tunes models in Python with Scikit-learn,
+TensorFlow and PyTorch, covering data preprocessing, feature engineering,
+hyperparameter tuning and evaluation on accuracy, precision and recall. Fine-tunes
+pre-trained models on task-specific datasets and benchmarks each against its
+baseline before it is taken forward. Documents datasets and experiment results for
+reproducibility, and refactors research prototypes into modular Python reviewed by
+senior engineers.
+
+**Freelance Full-Stack Developer**, self-employed, Kathmandu — November 2025 to
+present. Built and deployed a point-of-sale system for Raju Bhada Pasal, a retail
+business in Nepal, covering product records, billing and sales history behind an
+admin interface over a REST API and relational database. Delivered a full-stack web
+application for a pest control company in Sydney, Australia, owning requirements,
+database schema, API, interface and deployment.
 
 ## Projects
 
@@ -32,6 +42,13 @@ prototypes into modular Python reviewed by senior engineers.
   backend with role-based access, public alerting and automated full-country risk
   scans; React front end with real-time hotspot mapping. Data from NASA FIRMS,
   OpenWeatherMap and Open-Elevation.
+- **Raju Bhada Pasal** (2026, client work, live at https://rajubhada.com.np) -
+  shopfront and point-of-sale system for a kitchen utensil and household goods
+  retailer in Gaighat, Udayapur. The public page is a bilingual shop profile with
+  the product range, delivery terms and direct phone and WhatsApp ordering; behind
+  a login sits the point-of-sale and inventory management system the shop runs day
+  to day. Local SEO built in: geo-tagged for Gaighat, Open Graph and Twitter cards,
+  Nepali alongside English.
 - **QR-Based Digital Academic System** (2026, winner of TechSprint Hackathon 2026)
   — replaced paper lab submissions at Tribhuvan University. Per-student QR codes
   for instant record access, batch scanning for evaluators, and three role-based
@@ -50,7 +67,8 @@ prototypes into modular Python reviewed by senior engineers.
 ## Skills
 
 Languages: Python, JavaScript, C, C++, Java
-Machine learning: Scikit-learn, TensorFlow, PyTorch, OpenCV, Random Forest, Naive Bayes
+Machine learning: Scikit-learn, TensorFlow, PyTorch, OpenCV, Random Forest, Naive Bayes,
+  model fine-tuning, benchmarking
 Data: NumPy, Pandas, Matplotlib, Seaborn
 Backend: FastAPI, Flask, Node.js, JWT authentication
 Frontend: React, Vite, HTML5, CSS3, Tailwind CSS

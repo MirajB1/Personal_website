@@ -152,6 +152,59 @@
     var y = $('#year'); if (y) y.textContent = new Date().getFullYear();
   }
 
+  /* ─────────────────────────── hero counters ───────────────────────────
+     Count up once when scrolled into view, then stop for good. */
+  function counters() {
+    var nums = $$('.hero-stats .num');
+    if (!nums.length) return;
+
+    function run(el) {
+      var target = parseInt(el.getAttribute('data-count'), 10) || 0;
+      if (reduced) { el.textContent = target; return; }
+      var t0 = null, dur = 900;
+      function step(ts) {
+        if (!t0) t0 = ts;
+        var pr = Math.min(1, (ts - t0) / dur);
+        el.textContent = Math.round(target * (1 - Math.pow(1 - pr, 3)));
+        if (pr < 1) requestAnimationFrame(step); else el.textContent = target;
+      }
+      requestAnimationFrame(step);
+    }
+
+    if (!('IntersectionObserver' in window)) { nums.forEach(run); return; }
+    var io = new IntersectionObserver(function (entries, obs) {
+      entries.forEach(function (e) {
+        if (!e.isIntersecting) return;
+        run(e.target); obs.unobserve(e.target);
+      });
+    }, { threshold: 0.6 });
+    nums.forEach(function (el) { io.observe(el); });
+  }
+
+  /* ─────────────────────────── portrait parallax ───────────────────────────
+     A few pixels of drift while the hero is on screen. Capped, rAF-throttled,
+     and off entirely for reduced motion or narrow screens. */
+  function parallax() {
+    var fig = $('.hero-fig');
+    if (!fig || reduced) return;
+    var ticking = false;
+
+    function apply() {
+      if (window.innerWidth < 1080) { fig.style.transform = ''; return; }
+      var y = window.scrollY || 0;
+      if (y > window.innerHeight) return;
+      fig.style.transform = 'translate3d(0,' + Math.min(26, y * 0.07).toFixed(2) + 'px,0)';
+    }
+    window.addEventListener('scroll', function () {
+      if (ticking) return;
+      ticking = true;
+      requestAnimationFrame(function () { apply(); ticking = false; });
+    }, { passive: true });
+    window.addEventListener('resize', apply);
+    apply();
+  }
+
+
   /* ─────────────────────────── project tabs ─────────────────────────── */
   function projects() {
     var tabs = $$('.pj-tab'), panes = $$('.pj-pane');
@@ -242,5 +295,6 @@
   /* ─────────────────────────── go ─────────────────────────── */
   document.addEventListener('DOMContentLoaded', function () {
     boot(); theme(); chrome(); projects(); copy(); visitors();
+    try { counters(); parallax(); } catch (e) { /* decorative only */ }
   });
 })();
