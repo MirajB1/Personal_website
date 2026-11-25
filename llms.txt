@@ -17,8 +17,7 @@ collaborations, in Kathmandu or remote.
 ## Current roles
 
 **Associate Machine Learning Engineer**, Techkey Technology Pvt. Ltd., Kathmandu —
-November 2026 to present, promoted from Machine Learning Intern (August 2026 to
-November 2026). Builds, trains and fine-tunes models in Python with Scikit-learn,
+August 2026 to present. Builds, trains and fine-tunes models in Python with Scikit-learn,
 TensorFlow and PyTorch, covering data preprocessing, feature engineering,
 hyperparameter tuning and evaluation on accuracy, precision and recall. Fine-tunes
 pre-trained models on task-specific datasets and benchmarks each against its
